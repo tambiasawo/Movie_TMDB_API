@@ -30,7 +30,7 @@ export default function App() {
     };
 
     fetchItems();
-  }, [REQUEST_URL, page]);
+  }, [query, page]);
 
   const onPageChange = () => {
     const clientHeight = document.documentElement.clientHeight;
