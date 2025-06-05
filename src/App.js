@@ -14,9 +14,9 @@ export default function App() {
 
   const REQUEST_URL =
     query !== ""
-      ? `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=95ec914d7a53a26b5d95bd29bdafd041&include_adult=false&language=en-US&page=${page}`
-      : `https://api.themoviedb.org/3/discover/movie?api_key=95ec914d7a53a26b5d95bd29bdafd041&with_networks=213&page=${page}`;
-
+      ? `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${process.env.API_KEY}&include_adult=false&language=en-US&page=${page}`
+      : `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_networks=213&page=${page}`;
+  console.log(query);
   React.useEffect(() => {
     const fetchItems = async () => {
       setIsLoading(true);
