@@ -18,13 +18,12 @@ export default function App() {
       : `https://api.themoviedb.org/3/discover/movie?api_key=95ec914d7a53a26b5d95bd29bdafd041&with_networks=213&page=${page}`;
 
   React.useEffect(() => {
-   useEffect(() => {
     const fetchItems = async () => {
       const result = await axios(REQUEST_URL);
       setItems(result.data.results); //use the change state func to update it
       setIsLoading(false); // done loading so set i to false
+      console.log({query},result.data.results)
     };
- console.log({query},result.data.results)
     fetchItems();
   }, [query]);
  
