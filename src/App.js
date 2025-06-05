@@ -28,7 +28,7 @@ export default function App() {
       setItems((prev) => [...prev, ...result.data.results]);
       setIsLoading(false);
     };
-
+  console.log({query})
     fetchItems();
   }, [query, page]);
 
