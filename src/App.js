@@ -20,7 +20,8 @@ export default function App() {
   React.useEffect(() => {
     const fetchItems = async () => {
       const result = await axios(REQUEST_URL);
-      setItems(result.data.results); //use the change state func to update it
+      if(query)  setItems(result.data.results); //use the change state func to update it
+      else setItems(prev=>[...prev, ...result.data.results])
       setIsLoading(false); // done loading so set i to false
       console.log({query},result.data.results)
     };
