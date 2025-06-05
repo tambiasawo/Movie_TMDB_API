@@ -7,7 +7,7 @@ import Search from "./components/ui/Search";
 
 export default function App() {
   const [items, setItems] = React.useState([]);
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = React.useState(2);
   const [query, setQuery] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
