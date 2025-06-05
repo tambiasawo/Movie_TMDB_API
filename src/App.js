@@ -20,14 +20,24 @@ export default function App() {
   React.useEffect(() => {
     const fetchItems = async () => {
       const result = await axios(REQUEST_URL);
-      if(query)  setItems(result.data.results); //use the change state func to update it
-      else setItems(prev=>[...prev, ...result.data.results])
+       setItems(result.data.results); //use the change state func to update it
+      setIsLoading(false); // done loading so set i to false
+    };
+    fetchItems();
+  }, [query]);
+
+  
+  React.useEffect(() => {
+    const fetchItems = async () => {
+      const result = await axios(REQUEST_URL);
+      setItems(prev=>[...prev, ...result.data.results])
       setIsLoading(false); // done loading so set i to false
       console.log({query},result.data.results)
     };
     fetchItems();
-  }, [REQUEST_URL]);
+  }, [page]);
 
+  
   const onPageChange = () => {
     const clientHeight = document.documentElement.clientHeight;
     const scrollHeight = document.documentElement.scrollHeight;
